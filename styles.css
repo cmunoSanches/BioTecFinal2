@@ -15,10 +15,23 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); line-height: 1.6; color: var(--text-gray); background-color: var(--bg-white); overflow-x: hidden; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body { 
+    font-family: var(--font-body); 
+    line-height: 1.6; 
+    color: var(--text-gray); 
+    background-color: var(--bg-white); 
+    /* Esta línea es clave para evitar que el móvil se achique/agrande hacia los lados */
+    overflow-x: hidden; 
+    width: 100%;
+}
+
+/* Las imágenes nunca deben superar el ancho de la pantalla */
+img { max-width: 100%; height: auto; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
 .section-padding { padding: 90px 0; }
 .text-center { text-align: center; }
 .text-white { color: var(--text-white) !important; }
@@ -39,52 +52,71 @@ p { margin-bottom: 15px; font-size: 1.05em; }
 .split-layout { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
 .split-layout > div { flex: 1; }
 
-/* NAVBAR */
-.navbar { background: rgba(2, 17, 43, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(0, 210, 255, 0.2); }
+/* NAVBAR BLANCA */
+.navbar { 
+    background: rgba(255, 255, 255, 0.98); 
+    backdrop-filter: blur(10px); 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 1000; 
+    padding: 15px 0; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
-.nav-logo { height: 40px; }
+.nav-logo { height: 45px; z-index: 1001; }
+
 .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
-.nav-links a { color: var(--text-white); text-decoration: none; font-weight: 500; font-family: var(--font-heading); transition: color 0.3s; }
-.nav-links a:hover { color: var(--brand-cyan); }
-.cta-nav { background: var(--brand-cyan); color: var(--brand-dark-blue) !important; padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
-.cta-nav:hover { background: var(--text-white); }
+.nav-links a { color: var(--brand-dark-blue); text-decoration: none; font-weight: 600; font-family: var(--font-heading); transition: color 0.3s; }
+.nav-links a:hover { color: var(--brand-accent); }
+
+/* Botón Nav Azul */
+.cta-nav { background: var(--brand-accent); color: var(--text-white) !important; padding: 10px 24px; border-radius: 50px; }
+.cta-nav:hover { background: var(--brand-blue); }
+
+/* HAMBURGUESA (MÓVIL) */
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1001; }
+.hamburger .bar { width: 30px; height: 3px; background-color: var(--brand-dark-blue); transition: all 0.3s ease; border-radius: 3px; }
+
+/* ANIMACIÓN DE HAMBURGUESA A "X" */
+.hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
 
 /* CARRUSEL HERO */
 .carousel-container { position: relative; width: 100%; height: 100vh; overflow: hidden; margin-top: 70px; }
 .carousel-wrapper { width: 100%; height: 100%; position: relative; }
 .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
 .carousel-slide.active { opacity: 1; z-index: 10; }
-.carousel-content { max-width: 800px; padding: 0 20px; z-index: 20; color: white; }
+.carousel-content { max-width: 800px; padding: 0 20px; z-index: 20; color: white; width: 100%; }
 .carousel-content p { font-size: 1.2em; margin-bottom: 30px; opacity: 0.9; }
-.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(2, 17, 43, 0.5); color: white; border: none; font-size: 2em; padding: 15px 20px; cursor: pointer; z-index: 100; transition: 0.3s; border-radius: 50%; margin: 0 20px; }
-.carousel-btn:hover { background: var(--brand-cyan); color: var(--brand-dark-blue); }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(2, 17, 43, 0.5); color: white; border: none; font-size: 2em; padding: 15px 20px; cursor: pointer; z-index: 100; transition: 0.3s; border-radius: 50%; margin: 0 10px; }
+.carousel-btn:hover { background: var(--brand-accent); color: var(--text-white); }
 .prev { left: 0; }
 .next { right: 0; }
 
-/* SECCIÓN CURSOS (CATÁLOGO B2B) */
+/* CURSOS */
 .section-header { text-align: center; max-width: 700px; margin: 0 auto 50px; }
-.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.course-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; border-top: 4px solid var(--brand-cyan); }
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.course-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; border-top: 4px solid var(--brand-accent); }
 .course-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
 .course-img { width: 100%; height: 220px; object-fit: cover; }
 .course-info { padding: 30px; }
 .course-tag { background: var(--bg-light); color: var(--brand-accent); font-size: 0.8em; font-weight: 700; padding: 5px 12px; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
 .cta-text { color: var(--brand-accent); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 10px; font-size: 0.95em; transition: 0.3s; }
-.cta-text:hover { color: var(--brand-cyan); }
 
 /* BOTONES */
-.cta-button { display: inline-block; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-family: var(--font-heading); font-weight: 700; transition: all 0.3s; cursor: pointer; }
+.cta-button { display: inline-block; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-family: var(--font-heading); font-weight: 700; transition: all 0.3s; cursor: pointer; text-align: center;}
 .primary { background: var(--brand-accent); color: var(--text-white); box-shadow: 0 8px 20px rgba(0, 82, 212, 0.3); }
-.primary:hover { background: var(--brand-cyan); color: var(--brand-dark-blue); transform: translateY(-3px); }
+.primary:hover { background: var(--brand-blue); color: var(--text-white); transform: translateY(-3px); }
 .outline-cyan { background: transparent; color: var(--brand-cyan); border: 2px solid var(--brand-cyan); }
 .outline-cyan:hover { background: var(--brand-cyan); color: var(--brand-dark-blue); }
-.outline-blue { background: transparent; color: var(--brand-blue); border: 2px solid var(--brand-blue); }
-.outline-blue:hover { background: var(--brand-blue); color: var(--text-white); }
 
 /* BENEFICIOS Y CHECKLIST */
-.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-.benefit-item { background: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 16px; border: 1px solid rgba(0, 210, 255, 0.2); backdrop-filter: blur(5px); color: var(--text-white); transition: 0.3s; }
-.benefit-item:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: var(--brand-cyan); }
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+.benefit-item { background: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); color: var(--text-white); transition: 0.3s; }
 .benefit-item h3 { color: var(--text-white); }
 .benefit-item p { color: #cbd5e1; }
 .icon-box { font-size: 3em; margin-bottom: 20px; }
@@ -103,17 +135,49 @@ footer { background-color: #01060f; padding: 50px 0; border-top: 1px solid rgba(
 .footer-text { color: #94a3b8 !important; font-size: 0.9em; }
 .footer-info { text-align: right; }
 
-/* ANIMACIONES AL HACER SCROLL */
+/* ANIMACIONES DE SCROLL */
 .anim-scroll { opacity: 0; transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
 .anim-scroll.fade-up { transform: translateY(50px); }
-.anim-scroll.slide-left { transform: translateX(-50px); }
-.anim-scroll.slide-right { transform: translateX(50px); }
 .anim-scroll.is-visible { opacity: 1; transform: translate(0, 0); }
 
-/* RESPONSIVE */
+
+/* =========================================
+   RESPONSIVE (TELÉFONOS Y TABLETS)
+   ========================================= */
 @media (max-width: 900px) {
-    .split-layout { flex-direction: column; text-align: center; }
-    .nav-links { display: none; /* En un proyecto real aquí iría un menú hamburguesa */ }
-    h1 { font-size: 2.2em; }
+    /* Solución estructural móvil */
+    .split-layout { flex-direction: column; text-align: center; gap: 40px; }
+    .split-layout > div { width: 100%; }
+    
+    /* Textos más pequeños en móvil */
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+    .section-padding { padding: 60px 0; }
+
+    /* MENU HAMBURGUESA */
+    .hamburger { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        left: -100%; /* Oculto fuera de la pantalla */
+        top: 75px; /* Justo debajo de la navbar */
+        flex-direction: column;
+        background-color: var(--bg-white);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s ease-in-out;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        padding: 20px 0 40px 0;
+    }
+
+    .nav-links.active { left: 0; } /* Aparece al presionar */
+    
+    .nav-links li { margin: 20px 0; }
+    .nav-links a { font-size: 1.2em; display: block; }
+    
+    /* Adaptaciones de Botones y Footer para móvil */
+    .cta-nav { display: inline-block; margin-top: 10px; }
     .footer-info { text-align: center; margin-top: 20px; }
+    .footer-brand { text-align: center; }
+    .footer-logo { margin: 0 auto 20px auto; display: block; }
 }

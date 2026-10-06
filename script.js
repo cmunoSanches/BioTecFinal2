@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     
+    // --- LÓGICA DEL MENÚ HAMBURGUESA ---
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    // Abrir/Cerrar menú al presionar la hamburguesa
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
+
+    // Cerrar menú automáticamente al presionar cualquier enlace (Inicio, Cursos, etc.)
+    document.querySelectorAll(".nav-links li a").forEach(link => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
+
+
     // --- LÓGICA DEL CARRUSEL ---
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
@@ -12,22 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
         slides[slideIndex].classList.add('active');
     }
 
-    // Funciones para botones manuales
     window.moveSlide = function(n) {
-        clearInterval(carouselInterval); // Pausa el automático si el usuario hace clic
+        clearInterval(carouselInterval);
         slideIndex += n;
         showSlide(slideIndex);
-        startCarousel(); // Reinicia el automático
+        startCarousel();
     };
 
     function startCarousel() {
         carouselInterval = setInterval(() => {
             slideIndex++;
             showSlide(slideIndex);
-        }, 6000); // Cambia de imagen cada 6 segundos
+        }, 6000); 
     }
     
-    startCarousel(); // Inicia el carrusel al cargar la página
+    if(slides.length > 0) {
+        startCarousel(); 
+    }
 
     // --- LÓGICA DE ANIMACIONES DE SCROLL ---
     const elementosAnimables = document.querySelectorAll('.anim-scroll');
@@ -35,14 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+        threshold: 0.15 
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Deja de observar una vez que aparece
+                observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
