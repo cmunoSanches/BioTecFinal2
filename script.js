@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- LÓGICA DEL CARRUSEL ---
+    // --- LÓGICA DEL CARRUSEL (4 SEGUNDOS) ---
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(() => {
             slideIndex++;
             showSlide(slideIndex);
-        }, 3000); // 3000 milisegundos = 3 segundos
+        }, 4000); // Exactamente 4 segundos entre cambios
     }
     
     if(slides.length > 0) {
