@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+:root {
+    --brand-dark-blue: #02112b;
+    --brand-blue: #0b2b63;
+    --brand-cyan: #00d2ff;
+    --brand-accent: #0052d4;
+    --bg-white: #ffffff;
+    --bg-light: #f0f4f9;
+    --text-dark: #0f172a;
+    --text-gray: #475569;
+    --text-white: #ffffff;
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); line-height: 1.6; color: var(--text-gray); background-color: var(--bg-white); overflow-x: hidden; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+.section-padding { padding: 90px 0; }
+.text-center { text-align: center; }
+.text-white { color: var(--text-white) !important; }
+
+/* Tipografía */
+h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--brand-dark-blue); line-height: 1.25; letter-spacing: -0.02em; }
+h1 { font-size: 3em; font-weight: 800; color: var(--text-white); margin-bottom: 20px; }
+h2 { font-size: 2.3em; font-weight: 700; margin-bottom: 25px; }
+h3 { font-size: 1.25em; font-weight: 700; margin-bottom: 10px; }
+p { margin-bottom: 15px; font-size: 1.05em; }
+
+/* Fondos */
+.bg-white { background-color: var(--bg-white); }
+.bg-light { background-color: var(--bg-light); }
+.bg-blue { background: linear-gradient(135deg, var(--brand-dark-blue) 0%, var(--brand-blue) 100%); }
+
+/* Layouts */
+.split-layout { display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+.split-layout > div { flex: 1; }
+
+/* NAVBAR */
+.navbar { background: rgba(2, 17, 43, 0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(0, 210, 255, 0.2); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { height: 40px; }
+.nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
+.nav-links a { color: var(--text-white); text-decoration: none; font-weight: 500; font-family: var(--font-heading); transition: color 0.3s; }
+.nav-links a:hover { color: var(--brand-cyan); }
+.cta-nav { background: var(--brand-cyan); color: var(--brand-dark-blue) !important; padding: 8px 20px; border-radius: 50px; font-weight: 700 !important; }
+.cta-nav:hover { background: var(--text-white); }
+
+/* CARRUSEL HERO */
+.carousel-container { position: relative; width: 100%; height: 100vh; overflow: hidden; margin-top: 70px; }
+.carousel-wrapper { width: 100%; height: 100%; position: relative; }
+.carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
+.carousel-slide.active { opacity: 1; z-index: 10; }
+.carousel-content { max-width: 800px; padding: 0 20px; z-index: 20; color: white; }
+.carousel-content p { font-size: 1.2em; margin-bottom: 30px; opacity: 0.9; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(2, 17, 43, 0.5); color: white; border: none; font-size: 2em; padding: 15px 20px; cursor: pointer; z-index: 100; transition: 0.3s; border-radius: 50%; margin: 0 20px; }
+.carousel-btn:hover { background: var(--brand-cyan); color: var(--brand-dark-blue); }
+.prev { left: 0; }
+.next { right: 0; }
+
+/* SECCIÓN CURSOS (CATÁLOGO B2B) */
+.section-header { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.course-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; border-top: 4px solid var(--brand-cyan); }
+.course-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+.course-img { width: 100%; height: 220px; object-fit: cover; }
+.course-info { padding: 30px; }
+.course-tag { background: var(--bg-light); color: var(--brand-accent); font-size: 0.8em; font-weight: 700; padding: 5px 12px; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
+.cta-text { color: var(--brand-accent); font-weight: 600; text-decoration: none; display: inline-block; margin-top: 10px; font-size: 0.95em; transition: 0.3s; }
+.cta-text:hover { color: var(--brand-cyan); }
+
+/* BOTONES */
+.cta-button { display: inline-block; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-family: var(--font-heading); font-weight: 700; transition: all 0.3s; cursor: pointer; }
+.primary { background: var(--brand-accent); color: var(--text-white); box-shadow: 0 8px 20px rgba(0, 82, 212, 0.3); }
+.primary:hover { background: var(--brand-cyan); color: var(--brand-dark-blue); transform: translateY(-3px); }
+.outline-cyan { background: transparent; color: var(--brand-cyan); border: 2px solid var(--brand-cyan); }
+.outline-cyan:hover { background: var(--brand-cyan); color: var(--brand-dark-blue); }
+.outline-blue { background: transparent; color: var(--brand-blue); border: 2px solid var(--brand-blue); }
+.outline-blue:hover { background: var(--brand-blue); color: var(--text-white); }
+
+/* BENEFICIOS Y CHECKLIST */
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+.benefit-item { background: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 16px; border: 1px solid rgba(0, 210, 255, 0.2); backdrop-filter: blur(5px); color: var(--text-white); transition: 0.3s; }
+.benefit-item:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: var(--brand-cyan); }
+.benefit-item h3 { color: var(--text-white); }
+.benefit-item p { color: #cbd5e1; }
+.icon-box { font-size: 3em; margin-bottom: 20px; }
+
+.check-list { list-style: none; margin: 20px 0; }
+.check-list li { position: relative; padding-left: 35px; margin-bottom: 15px; color: var(--text-dark); font-weight: 500; }
+.check-list li::before { content: '✓'; position: absolute; left: 0; top: -2px; color: var(--text-white); background: var(--brand-accent); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; }
+
+.video-container { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(2, 17, 43, 0.15); }
+.final-cta { background: var(--brand-dark-blue); color: white; }
+.final-cta h2, .final-cta p { color: white; }
+
+/* FOOTER */
+footer { background-color: #01060f; padding: 50px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-logo { width: 140px; margin-bottom: 20px; }
+.footer-text { color: #94a3b8 !important; font-size: 0.9em; }
+.footer-info { text-align: right; }
+
+/* ANIMACIONES AL HACER SCROLL */
+.anim-scroll { opacity: 0; transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+.anim-scroll.fade-up { transform: translateY(50px); }
+.anim-scroll.slide-left { transform: translateX(-50px); }
+.anim-scroll.slide-right { transform: translateX(50px); }
+.anim-scroll.is-visible { opacity: 1; transform: translate(0, 0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .split-layout { flex-direction: column; text-align: center; }
+    .nav-links { display: none; /* En un proyecto real aquí iría un menú hamburguesa */ }
+    h1 { font-size: 2.2em; }
+    .footer-info { text-align: center; margin-top: 20px; }
+}

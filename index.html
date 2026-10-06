@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacitación Élite | Reparación de Equipos Odontológicos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <img src="logo.png" alt="Logo BIOTEC" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#contacto" class="cta-nav">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN CARRUSEL (HERO) -->
+    <header id="inicio" class="carousel-container">
+        <div class="carousel-wrapper">
+            <!-- Diapositiva 1 -->
+            <div class="carousel-slide active" style="background-image: linear-gradient(rgba(2, 17, 43, 0.7), rgba(2, 17, 43, 0.7)), url('carrusel-1.jpg');">
+                <div class="carousel-content anim-scroll fade-up">
+                    <h1>SISTEMA DE CAPACITACIÓN EN EQUIPAMIENTO ODONTOLÓGICO</h1>
+                    <p>Conviértete en un técnico especialista altamente demandado. Domina la reparación y mantenimiento con nuestro programa élite.</p>
+                    <a href="#cursos" class="cta-button primary">VER CURSOS</a>
+                </div>
+            </div>
+            <!-- Diapositiva 2 -->
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(2, 17, 43, 0.7), rgba(2, 17, 43, 0.7)), url('carrusel-2.jpg');">
+                <div class="carousel-content">
+                    <h1>SOPORTE TÉCNICO DE ALTA PRECISIÓN</h1>
+                    <p>Aprende protocolos internacionales de bioseguridad y calibración de equipos de última generación.</p>
+                    <a href="#contacto" class="cta-button outline-cyan">SOLICITAR ASESORÍA</a>
+                </div>
+            </div>
+        </div>
+        <!-- Controles Carrusel -->
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </header>
+
+    <!-- SECCIÓN CURSOS (CATÁLOGO) -->
+    <section id="cursos" class="bg-light section-padding">
+        <div class="container">
+            <div class="section-header anim-scroll fade-up">
+                <h2>Nuestros Cursos de Especialización</h2>
+                <p>Programas diseñados para resolver fallas críticas en clínicas odontológicas.</p>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- Curso 1 -->
+                <div class="course-card anim-scroll slide-left">
+                    <img src="curso-autoclave.jpg" alt="Mantenimiento de Autoclaves" class="course-img">
+                    <div class="course-info">
+                        <span class="course-tag">Esterilización</span>
+                        <h3>Mantenimiento de Autoclaves</h3>
+                        <p>Domina los ciclos de presión, cambio de resistencias y calibración de placas lógicas.</p>
+                        <a href="#" class="cta-text">Ver programa detallado &rarr;</a>
+                    </div>
+                </div>
+                <!-- Curso 2 -->
+                <div class="course-card anim-scroll fade-up" style="transition-delay: 0.2s;">
+                    <img src="curso-sillon.jpg" alt="Reparación de Sillones Dentales" class="course-img">
+                    <div class="course-info">
+                        <span class="course-tag">Electromecánica</span>
+                        <h3>Reparación de Sillones Dentales</h3>
+                        <p>Análisis de tarjetas electrónicas, motores de elevación y sistemas neumáticos.</p>
+                        <a href="#" class="cta-text">Ver programa detallado &rarr;</a>
+                    </div>
+                </div>
+                <!-- Curso 3 -->
+                <div class="course-card anim-scroll slide-right">
+                    <img src="curso-compresor.jpg" alt="Sistemas de Compresión" class="course-img">
+                    <div class="course-info">
+                        <span class="course-tag">Neumática</span>
+                        <h3>Sistemas de Compresión Libres de Aceite</h3>
+                        <p>Diagnóstico de fugas, cambio de anillos y mantenimiento preventivo integral.</p>
+                        <a href="#" class="cta-text">Ver programa detallado &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE VIDEO E INFORMACIÓN -->
+    <section class="bg-white section-padding">
+        <div class="container split-layout">
+            <div class="info-text anim-scroll slide-left">
+                <h2>Aprende con tecnología real</h2>
+                <p>Nuestra metodología combina e-learning con simulaciones prácticas. Aprenderás de la mano de expertos con más de 10 años de experiencia en electromedicina dental.</p>
+                <ul class="check-list">
+                    <li>Práctica en unidades dentales reales.</li>
+                    <li>Evaluación previa de equipos en clínica.</li>
+                    <li>Alta demanda laboral asegurada.</li>
+                </ul>
+                <br>
+                <a href="Plan_de_Capacitacion_borrador.pdf" download class="cta-button outline-blue">📄 DESCARGAR PROGRAMA</a>
+            </div>
+            <div class="info-media video-container anim-scroll slide-right">
+                <!-- Reemplaza ID_DEL_VIDEO con el ID real de YouTube -->
+                <iframe width="100%" height="350" src="https://www.youtube.com/embed/ID_DEL_VIDEO" title="Video explicativo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section id="beneficios" class="bg-blue section-padding">
+        <div class="container">
+            <h2 class="text-center text-white anim-scroll fade-up">Potenciando tu atención precisa en cualquier lugar</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item anim-scroll fade-up" style="transition-delay: 0.1s;">
+                    <div class="icon-box">🛠️</div>
+                    <h3>Conocimiento Práctico</h3>
+                    <p>Enfoque 100% en la práctica para que repares desde el primer día.</p>
+                </div>
+                <div class="benefit-item anim-scroll fade-up" style="transition-delay: 0.3s;">
+                    <div class="icon-box">🏅</div>
+                    <h3>Certificación de Valor</h3>
+                    <p>Recibirás un <strong>Certificado Oficial</strong> al finalizar el programa.</p>
+                </div>
+                <div class="benefit-item anim-scroll fade-up" style="transition-delay: 0.5s;">
+                    <div class="icon-box">📈</div>
+                    <h3>Soporte Continuo</h3>
+                    <p>Acceso a manuales, protocolos y comunidad de técnicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section id="contacto" class="final-cta text-center section-padding">
+        <div class="container anim-scroll fade-up">
+            <h2>¿Listo para impulsar tu carrera?</h2>
+            <p>El primer paso es una evaluación directa de los equipos con anterioridad a la capacitación.</p>
+            <br>
+            <a href="https://calendar.app.google/TU_ENLACE_AQUI" target="_blank" class="cta-button primary large">
+                PEDIR PRESUPUESTO / AGENDAR
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container split-layout">
+            <div>
+                <img src="logo-blanco.png" alt="BioTec" class="footer-logo">
+                <p class="footer-text">&copy; 2026 BioTec. Soluciones Técnicas Odontológicas.</p>
+            </div>
+            <div class="footer-info">
+                <p class="footer-text">📞 +56 9 9836 5085</p>
+                <p class="footer-text">📍 Sotomayor 497 of E, Linares</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
