@@ -4,13 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const navLinks = document.getElementById("nav-links");
 
-    // Abrir/Cerrar menú al presionar la hamburguesa
     hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("active");
         navLinks.classList.toggle("active");
     });
 
-    // Cerrar menú automáticamente al presionar cualquier enlace (Inicio, Cursos, etc.)
     document.querySelectorAll(".nav-links li a").forEach(link => {
         link.addEventListener("click", () => {
             hamburger.classList.remove("active");
@@ -18,11 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
     // --- LÓGICA DEL CARRUSEL ---
     let slideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
-    let carouselInterval;
 
     function showSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
@@ -31,18 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         slides[slideIndex].classList.add('active');
     }
 
-    window.moveSlide = function(n) {
-        clearInterval(carouselInterval);
-        slideIndex += n;
-        showSlide(slideIndex);
-        startCarousel();
-    };
-
     function startCarousel() {
-        carouselInterval = setInterval(() => {
+        setInterval(() => {
             slideIndex++;
             showSlide(slideIndex);
-        }, 6000); 
+        }, 3000); // 3000 milisegundos = 3 segundos
     }
     
     if(slides.length > 0) {

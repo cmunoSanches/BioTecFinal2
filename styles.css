@@ -23,12 +23,10 @@ body {
     line-height: 1.6; 
     color: var(--text-gray); 
     background-color: var(--bg-white); 
-    /* Esta línea es clave para evitar que el móvil se achique/agrande hacia los lados */
     overflow-x: hidden; 
     width: 100%;
 }
 
-/* Las imágenes nunca deben superar el ancho de la pantalla */
 img { max-width: 100%; height: auto; }
 
 .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
@@ -71,19 +69,15 @@ p { margin-bottom: 15px; font-size: 1.05em; }
 .nav-links a { color: var(--brand-dark-blue); text-decoration: none; font-weight: 600; font-family: var(--font-heading); transition: color 0.3s; }
 .nav-links a:hover { color: var(--brand-accent); }
 
-/* Botón Nav Azul */
 .cta-nav { background: var(--brand-accent); color: var(--text-white) !important; padding: 10px 24px; border-radius: 50px; }
 .cta-nav:hover { background: var(--brand-blue); }
 
 /* HAMBURGUESA (MÓVIL) */
 .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1001; }
 .hamburger .bar { width: 30px; height: 3px; background-color: var(--brand-dark-blue); transition: all 0.3s ease; border-radius: 3px; }
-
-/* ANIMACIÓN DE HAMBURGUESA A "X" */
 .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
 .hamburger.active .bar:nth-child(2) { opacity: 0; }
 .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
 
 /* CARRUSEL HERO */
 .carousel-container { position: relative; width: 100%; height: 100vh; overflow: hidden; margin-top: 70px; }
@@ -92,10 +86,6 @@ p { margin-bottom: 15px; font-size: 1.05em; }
 .carousel-slide.active { opacity: 1; z-index: 10; }
 .carousel-content { max-width: 800px; padding: 0 20px; z-index: 20; color: white; width: 100%; }
 .carousel-content p { font-size: 1.2em; margin-bottom: 30px; opacity: 0.9; }
-.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(2, 17, 43, 0.5); color: white; border: none; font-size: 2em; padding: 15px 20px; cursor: pointer; z-index: 100; transition: 0.3s; border-radius: 50%; margin: 0 10px; }
-.carousel-btn:hover { background: var(--brand-accent); color: var(--text-white); }
-.prev { left: 0; }
-.next { right: 0; }
 
 /* CURSOS */
 .section-header { text-align: center; max-width: 700px; margin: 0 auto 50px; }
@@ -145,38 +135,55 @@ footer { background-color: #01060f; padding: 50px 0; border-top: 1px solid rgba(
    RESPONSIVE (TELÉFONOS Y TABLETS)
    ========================================= */
 @media (max-width: 900px) {
-    /* Solución estructural móvil */
     .split-layout { flex-direction: column; text-align: center; gap: 40px; }
     .split-layout > div { width: 100%; }
     
-    /* Textos más pequeños en móvil */
     h1 { font-size: 2em; }
     h2 { font-size: 1.8em; }
     .section-padding { padding: 60px 0; }
 
-    /* MENU HAMBURGUESA */
     .hamburger { display: flex; }
     
     .nav-links {
         position: fixed;
-        left: -100%; /* Oculto fuera de la pantalla */
-        top: 75px; /* Justo debajo de la navbar */
+        left: -100%; 
+        top: 75px; 
         flex-direction: column;
         background-color: var(--bg-white);
         width: 100%;
         text-align: center;
         transition: 0.4s ease-in-out;
         box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        padding: 20px 0 40px 0;
+        padding: 0;
     }
 
-    .nav-links.active { left: 0; } /* Aparece al presionar */
+    .nav-links.active { left: 0; } 
     
-    .nav-links li { margin: 20px 0; }
-    .nav-links a { font-size: 1.2em; display: block; }
+    /* MODIFICACIÓN: Líneas separadoras en el menú móvil */
+    .nav-links li { 
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Línea divisoria */
+        margin: 0;
+    }
     
-    /* Adaptaciones de Botones y Footer para móvil */
-    .cta-nav { display: inline-block; margin-top: 10px; }
+    /* Quitar línea al último elemento (contenedor del botón) */
+    .nav-links li.nav-cta-container {
+        border-bottom: none;
+        padding-bottom: 30px; /* Espacio extra al final del menú */
+    }
+
+    /* Ajuste para que toda la barra sea "clickeable" y se vea más ordenado */
+    .nav-links a { 
+        font-size: 1.1em; 
+        display: block; 
+        padding: 20px 0; 
+    }
+    
+    .cta-nav { 
+        display: inline-block; 
+        margin-top: 15px; 
+    }
+
     .footer-info { text-align: center; margin-top: 20px; }
     .footer-brand { text-align: center; }
     .footer-logo { margin: 0 auto 20px auto; display: block; }
